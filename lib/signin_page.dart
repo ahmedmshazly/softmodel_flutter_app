@@ -1,129 +1,168 @@
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
+import 'package:sizer/sizer.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 100.0),
-              const Text(
-                'Welcome back!',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold,
+    return Container(
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(r'lib\media\background.png'),
+              fit: BoxFit.cover)),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            leading: BackButton(color: Colors.white),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(r'lib\media\appbar.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 16.0),
-              const Text(
-                'Sign in to continue',
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-              const SizedBox(height: 40.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  hintText: 'Enter your email',
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  hintText: 'Enter your password',
-                ),
-              ),
-              const SizedBox(height: 32.0),
-              Row(
-                children: [
-                  Checkbox(
-                    value: false,
-                    onChanged: (value) {
-                      if (value == true) {
-                        value = false;
-                      } else {
-                        value = true;
-                      }
-                    },
-                  ),
-                  const Text(
-                    'Remember me',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  const Spacer(), // Beteween the remmber me and the forgot pass
-                  GestureDetector(
-                    // we need to discover this more
-                    onTap: () {},
-                    child: const Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ),
-                ],
-              ), // End of the row
-              const SizedBox(
-                height: 32.0,
-              ),
-              SizedBox(
-                width: 250,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Sign In',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'Don\'t have an account?',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpPage()),
-                      );
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+          body:
+              // ignore: prefer_const_constructors
+              Column(children: [
+            const SizedBox(
+              height: 50,
+            ),
+            Container(
+              alignment: Alignment.center,
+              // padding: const EdgeInsets.all(10),
+              child: const Text(
+                "Sign In",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 70,
+            ),
+            Center(
+              // alignment: Alignment.bottomCenter,
+              child: Container(
+                width: 280,
+                height: 350,
+                // alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.white,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    boxShadow: [
+                      // ignore: prefer_const_constructors
+                      BoxShadow(
+                          blurRadius: 25.0,
+                          color: Color.fromRGBO(0, 0, 0, 0.25)),
+                    ]),
+
+                child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Email",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color.fromRGBO(192, 238, 242, 1)),
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            child: const TextField(
+                              style: TextStyle(color: Colors.black),
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon:
+                                      Icon(Icons.email, color: Colors.black),
+                                  hintText: 'Email',
+                                  hintStyle: TextStyle(color: Colors.black)),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            'Password',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color.fromRGBO(192, 238, 242, 1)),
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            child: const TextField(
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color: Colors.black,
+                                ),
+                                hintText: 'Password',
+                                hintStyle: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignInPage()),
+                            ),
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color.fromRGBO(0, 0, 0, 1),
+                                ),
+                                child: const Center(
+                                  child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Text("Submit",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  88, 198, 227, 1),
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold))),
+                                )),
+                          )
+                        ],
+                      ),
+                    )),
+              ),
+            ),
+          ])),
     );
   }
 }
