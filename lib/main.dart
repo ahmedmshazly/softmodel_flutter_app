@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signin_page.dart';
 import 'signup_page.dart';
+import 'package:sizer/sizer.dart';
 // import './splash_screen.dart';
 
 void main() {
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveBuild;
+
     return MaterialApp(
       // initialRoute: "./",
       // routes: {
