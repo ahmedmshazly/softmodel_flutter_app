@@ -65,6 +65,7 @@ flutter:
     - lib\media\splash_test.jpg
     - lib\media\homeback.jpg
     - lib\media\splash.jpg
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
